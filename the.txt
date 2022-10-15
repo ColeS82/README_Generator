@@ -1,0 +1,10 @@
+{
+	"greeting": "yes",
+	"title": "the",
+	"description": "rge",
+	"installation": "rg",
+	"usage": "egege",
+	"license": "mit",
+	"contributing": "egg",
+	"tests": "e"
+}

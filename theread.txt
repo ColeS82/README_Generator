@@ -1,0 +1,10 @@
+{
+	"greeting": "yes",
+	"title": "the read",
+	"description": "ead",
+	"installation": "read",
+	"usage": "ererda",
+	"license": "mit",
+	"contributing": "",
+	"tests": ""
+}
