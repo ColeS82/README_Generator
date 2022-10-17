@@ -1,17 +1,14 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const text = require('./generator')
 
 inquirer.prompt([
-    {
-        type: 'list',
-        name: 'greeting',
-        message: "Hello!\nWelcome to Cole's readme generator.\nDo you want to start a new project?",
-        choices: ['yes', 'no',],
-    },
+    //base info
     {
         name: "title",
-        message: "what is the title of this project?",
-    },//sections
+        message: "Hello!\n Welcome to Cole's readme generator.\n What is the title of this project?",
+    },
+    //sections
     {
         name: 'description',
         message: 'What is the project about?',
@@ -28,23 +25,30 @@ inquirer.prompt([
         type: 'list',
         name: 'license',
         message: 'which license will be used with this application',
-        choices:['mit', 'opensource','other',],
+        choices:['MIT', 'opensource','other',],
+
     },
     {
-        name: 'contributing',
-        message: 'Who helped you?',
+        name: 'contribution_guidlines',
+        message: 'How can someone contribute to this project?',
     },
     {
         name: 'tests',
-        message: 'Are there any test associated with this application?',
+        message: 'How can someone test this application?',
     },
 ])
-.then((answers) => {
-    const filename = `${answers.title.toLowerCase().split(' ').join('')}.txt`;
 
-    fs.writeFile(filename, JSON.stringify(answers, null, '\t'), (err) =>
+
+.then((answers) => {
+    const mdGen = text(answers);
+    const filename = `${answers.title.toLowerCase().split(' ').join('')}.md`;
+
+
+    fs.writeFile(filename, mdGen, (err) =>
     err ? console.log(err) : console.log('Success!')
     );
+    
+
 });
 
-console.log(JSON.stringify(answers))
+
