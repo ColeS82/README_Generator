@@ -25,7 +25,7 @@ inquirer.prompt([
         type: 'list',
         name: 'license',
         message: 'which license will be used with this application',
-        choices:['MIT', 'opensource','other',],
+        choices:['MIT', 'Apache','Mozilla','Open_Source'],
 
     },
     {
